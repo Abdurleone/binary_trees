@@ -119,7 +119,7 @@ void binary_tree_levelorder(const binary_tree_t *tree, void(*func)(int))
 			aux = head;
 			while (aux != NULL)
 			{
-				if (count == aux->n);
+				if (count == aux->n)
 				{
 					func(aux->node->n);
 				}
