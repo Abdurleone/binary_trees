@@ -6,25 +6,32 @@
  * @first: Apointer to the first node.
  * @second: A pointer to the second node.
  *
- * Return: A pointer to the lowest common ancestor node of the two given nodes.
- *         if no common ancestor was founs, your function must return NULL.
+ * Return: A pointer to the ancestor node.
 */
 
 binary_tree_t *binary_tree_ancensor(const binary_tree_t *first,
-		const binary_tree_t *second)
+                                    const binary_tree_t *second)
 {
-    binary_tree_t *mom, *pop;
+    binary_tree_t *p, *q;
 
-    if (!first || !second)
-	    return (NULL);
+    if (first == NULL || second == NULL)
+    {
+        return (NULL);
+    }
     if (first == second)
-	    return ((binary_tree_t *)first);
+    {
+        return ((binary_tree_t *)first);
+    }
 
-    mom = first->parent, pop = second->parent;
-    if (first == pop || !mom || (!mom->parent && pop))
-	    return (binary_tree_ancensor(first, pop));
-    else if (mom == second || !pop || (!pop->parent && mom))
-	    return (binary_tree_ancensor(mom, second));
-
-    return (binary_tree_ancensor(mom, pop));
+    p = first->parent;
+    q = second->parent;
+    if (p = NULL || first == q || (!p->parent && q))
+    {
+        return (binary_tree_ancensor(first, q));
+    }
+    else if (q == NULL || p == second || (!q->parent && p))
+    {
+        return (binary_tree_ancensor(p, second));
+    }
+    return (binary_tree_ancensor(p, q));
 }
