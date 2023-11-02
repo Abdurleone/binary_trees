@@ -2,10 +2,9 @@
 /**
  * bst_insert - insert nodes in order to create a BST tree
  * @tree: tree to create with type BST
- * @vale: value of node to insert
- * Return: BST free
+ * @value: value of node to insert
+ * Return: BST tree
  */
-
 bst_t *bst_insert(bst_t **tree, int value)
 {
 	bst_t *new, *temp;
@@ -36,7 +35,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 		else if (value > temp->n)
 		{
 			if (temp->right)
-				new = bst_insert(&teemp->right, value);
+				new = bst_insert(&temp->right, value);
 			else
 			{
 				aux = binary_tree_node((binary_tree_t *)temp, value);
